@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
   return (
     <html lang='zh'>
       <body>
-        <nav className="fixed z-50 flex flex-col gap-3 h-full p-3 bg-zinc-100 opacity-10 overflow-y-auto hover:opacity-100">
+        <nav className="fixed z-50 flex flex-col gap-3 h-full p-3 bg-zinc-100 opacity-20 overflow-y-auto hover:opacity-100">
           <Link href="/design-patterns">设计模式</Link>
         </nav>
         {children}
