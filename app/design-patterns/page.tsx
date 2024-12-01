@@ -2,14 +2,14 @@
 
 import { useEffect } from 'react';
 import { delay } from '../lib/time';
-import { DataAdapter } from './_lib/adapter';
-import { ApiRequestBuilder } from './_lib/builder';
-import { File, Folder } from './_lib/composite';
-import { createProduct } from './_lib/factory';
-import singleton from './_lib/singleton';
-import { getDiscountStrategy, VipDiscountContext } from './_lib/strategy';
-import { Subject } from './_lib/subject';
-import { PubSub } from './_lib/pubsub';
+import { DataAdapter } from './lib/adapter';
+import { ApiRequestBuilder } from './lib/builder';
+import { File, Folder } from './lib/composite';
+import { createProduct } from './lib/factory';
+import { PubSub } from './lib/pubsub';
+import singleton from './lib/singleton';
+import { getDiscountStrategy, VipDiscountContext } from './lib/strategy';
+import { Subject } from './lib/subject';
 
 const Page = () => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const Page = () => {
        * 验证导入的2个对象是否是单例的
        */
       await delay(300);
-      const singleton2 = (await import('./_lib/singleton')).default;
+      const singleton2 = (await import('./lib/singleton')).default;
 
       // true 
       // Object { timestamp: 1732938565252 }

@@ -1,0 +1,35 @@
+/* 待上线方案 */
+.modal {
+  container-type: size;
+  container-name: modal;
+}
+@container modal (aspect-ratio < 1.5) {
+  .modalContainer {
+    @apply w-full h-auto;
+  }
+}
+
+/* 实验方案2 */
+.container {
+  @apply flex w-80 h-96 p-3 resize overflow-hidden bg-red-100;
+  /* 容器查询类型，size基于宽高，inline-size基于宽度 */
+  container-type: size;
+  /* 容器名，随便起 */
+  container-name: resize-box;
+}
+
+.square {
+  /* 容器宽度<高度时撑满宽度并保持1:1 */
+  @apply flex w-full h-auto aspect-square p-3 m-auto bg-orange-100 overflow-hidden;
+
+  & > div {
+    @apply m-auto;
+  }
+}
+
+@container resize-box (aspect-ratio > 1) {
+  /* 容器宽度>高度时撑满高度并保持1:1 */
+  .square {
+    @apply w-auto h-full;
+  }
+}
