@@ -15,7 +15,6 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
           <Link href="/design-patterns">设计模式</Link>
           <Link href="/aspect-scale">子元素固定比例并撑大容器</Link>
           <Link href="/masonry">瀑布流</Link>
-          <Link href="/square-grid">正方形网格</Link>
           <Link href="/rgba-mix">RGBA混合</Link>
         </nav>
         {children}
