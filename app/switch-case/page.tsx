@@ -19,17 +19,22 @@ const Switch = ({ expression, children }: SwitchProps) => {
   let defaultChild: ReactElement<SwitchChildProps> | null = null;
   let caseChild: ReactElement<SwitchChildProps> | null = null;
 
-  Children.forEach(children, (child) => {
+  for (const child of Children.toArray(children)) {
+    // 过滤非React元素
     if (!isValidElement(child)) {
-      return;
+      continue;
     }
-    if (child.type === Switch.Case && caseChild === null && child.props.condition === expression) {
-      caseChild = child;
-    }
+    // 记录第一个遇到的Default Case
     if (child.type === Switch.Default && defaultChild === null) {
-      defaultChild = child;
+      defaultChild = child as ReactElement<SwitchChildProps>;
+      continue;
     }
-  });
+    // 匹配第一个符合条件的Case，然后跳出循环
+    if (child.type === Switch.Case && child.props.condition === expression) {
+      caseChild = child as ReactElement<SwitchChildProps>;
+      break;
+    }
+  }
 
   return caseChild || defaultChild;
 };
